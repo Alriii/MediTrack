@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+    background: #f3f7f5;
+    color: #173b35;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+main {
+    width: min(100%, 42rem);
+    padding: 3rem;
+    border: 1px solid #c9ddd5;
+    border-radius: 8px;
+    background: #ffffff;
+    text-align: center;
+    box-shadow: 0 1rem 2.5rem rgb(23 59 53 / 10%);
+}
+
+h1 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(2rem, 6vw, 4rem);
+}
+
+p {
+    margin: 0;
+    color: #52736b;
+    font-family: Arial, sans-serif;
+    font-size: 1.05rem;
+}
