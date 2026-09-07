@@ -1,6 +1,9 @@
 <?php
 
+session_start();
+
 $pageTitle = "MediTrack";
+$savedMedications = $_SESSION['medications'] ?? [];
 
 ?>
 
@@ -18,12 +21,14 @@ $pageTitle = "MediTrack";
 
     <title><?= htmlspecialchars($pageTitle) ?></title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Page and component styles -->
+    <link rel="stylesheet" href="assets/styles/index.css">
+    <link rel="stylesheet" href="assets/styles/navbar.css">
+    <link rel="stylesheet" href="assets/styles/footer.css">
 
 </head>
 
-<body class="bg-slate-50 text-slate-900">
+<body>
 
     <!-- Navbar -->
     <?php require_once __DIR__ . '/components/common/navbar.php'; ?>
@@ -32,47 +37,39 @@ $pageTitle = "MediTrack";
     <!-- Hero Section -->
     <main>
 
-        <section class="bg-white">
+        <section class="hero-section">
 
-            <div class="max-w-7xl mx-auto px-6 py-20">
+            <div class="container">
 
-                <div class="max-w-3xl mx-auto text-center">
+                <div class="hero-content">
 
-                    <span
-                        class="inline-block px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold"
-                    >
+                    <span class="hero-badge">
                         Simple Family Medication Reminder
                     </span>
 
-                    <h1
-                        class="mt-6 text-5xl md:text-6xl font-bold tracking-tight text-slate-900"
-                    >
+                    <h1 class="hero-title">
                         Keep your family's
-                        <span class="text-blue-600">
-                            medications organized.
-                        </span>
+                        <span>medications organized.</span>
                     </h1>
 
-                    <p
-                        class="mt-6 text-lg leading-8 text-slate-600"
-                    >
+                    <p class="hero-description">
                         MediTrack helps families keep medication information
                         organized with clear instructions based on each
                         medication type.
                     </p>
 
-                    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                    <div class="hero-buttons">
 
                         <a
                             href="/MediTrack/pages/add-medication.php"
-                            class="px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+                            class="button button-primary"
                         >
                             Add Medication
                         </a>
 
                         <a
                             href="#how-it-works"
-                            class="px-6 py-3 rounded-lg border border-slate-300 text-slate-700 font-semibold hover:bg-slate-100 transition"
+                            class="button button-secondary"
                         >
                             How It Works
                         </a>
@@ -86,22 +83,81 @@ $pageTitle = "MediTrack";
         </section>
 
 
+        <!-- Saved Medications -->
+        <?php if ($savedMedications !== []): ?>
+
+            <section class="saved-medications-section">
+
+                <div class="container">
+
+                    <div class="section-heading">
+
+                        <p class="section-label">SAVED MEDICATIONS</p>
+
+                        <h2>Your medication list</h2>
+
+                        <p>Saved medications remain available during this browser session.</p>
+
+                    </div>
+
+                    <div class="saved-medications-list">
+
+                        <?php foreach ($savedMedications as $savedMedication): ?>
+
+                            <article class="saved-medication-card">
+
+                                <div>
+                                    <p class="saved-medication-type">
+                                        <?= htmlspecialchars($savedMedication['type']) ?>
+                                    </p>
+                                    <h3>
+                                        <?= htmlspecialchars($savedMedication['medication_name']) ?>
+                                    </h3>
+                                    <p>
+                                        For <?= htmlspecialchars($savedMedication['patient_name']) ?>
+                                    </p>
+                                </div>
+
+                                <dl class="saved-medication-details">
+                                    <div>
+                                        <dt>Dosage</dt>
+                                        <dd><?= htmlspecialchars($savedMedication['dosage']) ?></dd>
+                                    </div>
+                                    <div>
+                                        <dt>Frequency</dt>
+                                        <dd><?= htmlspecialchars($savedMedication['frequency']) ?></dd>
+                                    </div>
+                                </dl>
+
+                            </article>
+
+                        <?php endforeach; ?>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        <?php endif; ?>
+
+
         <!-- Features -->
-        <section class="py-20">
+        <section class="features-section">
 
-            <div class="max-w-7xl mx-auto px-6">
+            <div class="container">
 
-                <div class="text-center max-w-2xl mx-auto">
+                <div class="section-heading">
 
-                    <p class="text-blue-600 font-semibold">
+                    <p class="section-label">
                         FEATURES
                     </p>
 
-                    <h2 class="mt-2 text-3xl font-bold text-slate-900">
+                    <h2>
                         Simple tools for medication management
                     </h2>
 
-                    <p class="mt-4 text-slate-600">
+                    <p>
                         Everything is designed to keep medication information
                         clear and easy to understand.
                     </p>
@@ -109,25 +165,21 @@ $pageTitle = "MediTrack";
                 </div>
 
 
-                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-grid">
 
 
                     <!-- Feature 1 -->
-                    <div
-                        class="bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-lg transition"
-                    >
+                    <div class="feature-card">
 
-                        <div
-                            class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 text-xl font-bold"
-                        >
+                        <div class="feature-icon feature-icon-blue">
                             +
                         </div>
 
-                        <h3 class="mt-6 text-xl font-semibold">
+                        <h3>
                             Track Medications
                         </h3>
 
-                        <p class="mt-3 text-slate-600 leading-7">
+                        <p>
                             Add medication information and keep important
                             details organized in one place.
                         </p>
@@ -136,21 +188,17 @@ $pageTitle = "MediTrack";
 
 
                     <!-- Feature 2 -->
-                    <div
-                        class="bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-lg transition"
-                    >
+                    <div class="feature-card">
 
-                        <div
-                            class="w-12 h-12 rounded-xl bg-teal-100 flex items-center justify-center text-teal-600 text-xl font-bold"
-                        >
+                        <div class="feature-icon feature-icon-teal">
                             ✓
                         </div>
 
-                        <h3 class="mt-6 text-xl font-semibold">
+                        <h3>
                             Multiple Medication Types
                         </h3>
 
-                        <p class="mt-3 text-slate-600 leading-7">
+                        <p>
                             Choose between tablets, syrups, and injections
                             with type-specific information.
                         </p>
@@ -159,21 +207,17 @@ $pageTitle = "MediTrack";
 
 
                     <!-- Feature 3 -->
-                    <div
-                        class="bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-lg transition"
-                    >
+                    <div class="feature-card">
 
-                        <div
-                            class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl font-bold"
-                        >
+                        <div class="feature-icon feature-icon-indigo">
                             i
                         </div>
 
-                        <h3 class="mt-6 text-xl font-semibold">
+                        <h3>
                             Clear Instructions
                         </h3>
 
-                        <p class="mt-3 text-slate-600 leading-7">
+                        <p>
                             View instructions appropriate for the selected
                             medication type.
                         </p>
@@ -190,41 +234,39 @@ $pageTitle = "MediTrack";
         <!-- How It Works -->
         <section
             id="how-it-works"
-            class="py-20 bg-white border-y border-slate-200"
+            class="how-it-works-section"
         >
 
-            <div class="max-w-7xl mx-auto px-6">
+            <div class="container">
 
-                <div class="text-center">
+                <div class="section-heading">
 
-                    <p class="text-blue-600 font-semibold">
+                    <p class="section-label">
                         HOW IT WORKS
                     </p>
 
-                    <h2 class="mt-2 text-3xl font-bold">
+                    <h2>
                         Three simple steps
                     </h2>
 
                 </div>
 
 
-                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="steps-grid">
 
 
                     <!-- Step 1 -->
-                    <div class="text-center">
+                    <div class="step">
 
-                        <div
-                            class="mx-auto w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl font-bold"
-                        >
+                        <div class="step-number">
                             1
                         </div>
 
-                        <h3 class="mt-5 text-xl font-semibold">
+                        <h3>
                             Add Medication
                         </h3>
 
-                        <p class="mt-3 text-slate-600">
+                        <p>
                             Enter the medication and family member information.
                         </p>
 
@@ -232,19 +274,17 @@ $pageTitle = "MediTrack";
 
 
                     <!-- Step 2 -->
-                    <div class="text-center">
+                    <div class="step">
 
-                        <div
-                            class="mx-auto w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl font-bold"
-                        >
+                        <div class="step-number">
                             2
                         </div>
 
-                        <h3 class="mt-5 text-xl font-semibold">
+                        <h3>
                             Choose the Type
                         </h3>
 
-                        <p class="mt-3 text-slate-600">
+                        <p>
                             Select whether the medication is a tablet, syrup,
                             or injection.
                         </p>
@@ -253,19 +293,17 @@ $pageTitle = "MediTrack";
 
 
                     <!-- Step 3 -->
-                    <div class="text-center">
+                    <div class="step">
 
-                        <div
-                            class="mx-auto w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl font-bold"
-                        >
+                        <div class="step-number">
                             3
                         </div>
 
-                        <h3 class="mt-5 text-xl font-semibold">
+                        <h3>
                             View Instructions
                         </h3>
 
-                        <p class="mt-3 text-slate-600">
+                        <p>
                             MediTrack processes the information and displays
                             the appropriate result.
                         </p>
@@ -280,25 +318,23 @@ $pageTitle = "MediTrack";
 
 
         <!-- Call To Action -->
-        <section class="py-20">
+        <section class="cta-section">
 
-            <div class="max-w-4xl mx-auto px-6">
+            <div class="container cta-container">
 
-                <div
-                    class="rounded-3xl bg-blue-600 px-8 py-12 text-center text-white"
-                >
+                <div class="cta-box">
 
-                    <h2 class="text-3xl font-bold">
+                    <h2>
                         Ready to organize your medications?
                     </h2>
 
-                    <p class="mt-4 text-blue-100">
+                    <p>
                         Add your first medication and see how MediTrack works.
                     </p>
 
                     <a
                         href="/MediTrack/pages/add-medication.php"
-                        class="inline-block mt-8 px-6 py-3 rounded-lg bg-white text-blue-600 font-semibold hover:bg-blue-50 transition"
+                        class="button cta-button"
                     >
                         Get Started
                     </a>
