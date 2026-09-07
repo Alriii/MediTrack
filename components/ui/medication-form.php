@@ -1,4 +1,4 @@
-<!-- Medication Form -->
+<!-- Medication form. -->
 <div class="medication-form-container">
 
     <form
@@ -218,12 +218,12 @@
 
 
         <!-- Submit -->
-        <button
-            type="submit"
-            class="submit-button"
-        >
-            Process Medication
-        </button>
+        <?php
+        $buttonType = 'submit';
+        $buttonLabel = 'Process Medication';
+        $buttonClass = 'submit-button';
+        require __DIR__ . '/button.php';
+        ?>
 
     </form>
 

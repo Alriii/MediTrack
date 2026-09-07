@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/Medication.php';
 
+// Tablet version of a medication.
 class TabletMedication extends Medication
 {
     public function __construct(
@@ -20,11 +21,13 @@ class TabletMedication extends Medication
         );
     }
 
+    // Display the selected type.
     public function getType(): string
     {
         return "Tablet";
     }
 
+    // Tablet instructions.
     public function getInstructions(): string
     {
         return "Take the tablet with water according to the prescribed dosage and frequency.";

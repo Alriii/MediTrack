@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/Medication.php';
 
+// Injection version of a medication.
 class InjectionMedication extends Medication
 {
     public function __construct(
@@ -20,11 +21,13 @@ class InjectionMedication extends Medication
         );
     }
 
+    // Display the selected type.
     public function getType(): string
     {
         return "Injection";
     }
 
+    // Injection instructions.
     public function getInstructions(): string
     {
         return "Injection medication should be administered according to the instructions provided by a qualified healthcare professional.";

@@ -4,8 +4,10 @@ require_once __DIR__ . '/TabletMedication.php';
 require_once __DIR__ . '/SyrupMedication.php';
 require_once __DIR__ . '/InjectionMedication.php';
 
+// Builds the right medication object for the selected type.
 class MedicationFactory
 {
+    // Create and initialize the selected medication type.
     public static function createMedication(
         string $type,
         string $patientName,

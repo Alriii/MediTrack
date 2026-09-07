@@ -1,6 +1,8 @@
 <?php
 
+// Handles the form, creates the medication, and shows the result.
 require_once __DIR__ . '/../classes/MedicationFactory.php';
+require_once __DIR__ . '/../includes/config.php';
 
 session_start();
 
@@ -123,6 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <!-- Page Styles -->
     <link rel="stylesheet" href="../assets/styles/add-medication.css">
     <link rel="stylesheet" href="../assets/styles/medication-result.css">
+    <link rel="stylesheet" href="../assets/styles/buttons.css">
 
 </head>
 
@@ -153,9 +156,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
         <!-- Medication Form -->
-        <?php require_once __DIR__ . '/forms/medication-form.php'; ?>
+        <?php require_once __DIR__ . '/../components/ui/medication-form.php'; ?>
         <!-- Medication Result -->
-         <?php require_once __DIR__ . '/forms/medication-result.php'; ?>
+         <?php require_once __DIR__ . '/../components/ui/medication-result.php'; ?>
 
     </main>
 

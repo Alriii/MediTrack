@@ -1,0 +1,377 @@
+/* Homepage styles. */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.hero-section {
+    background-color: #ffffff;
+    padding: 90px 0;
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background-color: #dbeafe;
+    color: #1d4ed8;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.hero-title {
+    margin-top: 24px;
+    font-size: 58px;
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    color: #0f172a;
+}
+
+.hero-title span {
+    display: block;
+    color: #2563eb;
+}
+
+.hero-description {
+    max-width: 760px;
+    margin: 28px auto 0;
+    font-size: 19px;
+    line-height: 1.8;
+    color: #475569;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.section-heading {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-label {
+    color: #2563eb;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.section-heading h2 {
+    margin-top: 8px;
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.section-heading > p:last-child {
+    margin-top: 16px;
+    font-size: 17px;
+    color: #475569;
+}
+
+.features-section {
+    padding: 90px 0;
+    background-color: #f8fafc;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.feature-card {
+    padding: 32px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    transition: 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.feature-icon {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.feature-icon-blue {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+
+.feature-icon-teal {
+    background-color: #ccfbf1;
+    color: #0f766e;
+}
+
+.feature-icon-indigo {
+    background-color: #e0e7ff;
+    color: #4f46e5;
+}
+
+.feature-card h3 {
+    margin-top: 24px;
+    font-size: 21px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.feature-card p {
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #475569;
+}
+
+.how-it-works-section {
+    padding: 90px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 48px;
+}
+
+.step {
+    text-align: center;
+}
+
+.step-number {
+    width: 62px;
+    height: 62px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.step h3 {
+    margin-top: 20px;
+    font-size: 21px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.step p {
+    max-width: 320px;
+    margin: 12px auto 0;
+    color: #475569;
+    font-size: 16px;
+}
+
+.cta-section {
+    padding: 90px 0;
+    background-color: #f8fafc;
+}
+
+.cta-container {
+    max-width: 1000px;
+}
+
+.cta-box {
+    padding: 56px 32px;
+    background-color: #2563eb;
+    border-radius: 28px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.cta-box h2 {
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.cta-box p {
+    margin-top: 16px;
+    font-size: 17px;
+    color: #dbeafe;
+}
+
+@media (max-width: 900px) {
+
+    .hero-title {
+        font-size: 48px;
+    }
+
+    .feature-grid,
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 0 18px;
+    }
+
+    .hero-section,
+    .features-section,
+    .how-it-works-section,
+    .cta-section {
+        padding: 65px 0;
+    }
+
+    .hero-title {
+        font-size: 38px;
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .cta-box {
+        padding: 45px 24px;
+    }
+
+    .cta-box h2 {
+        font-size: 30px;
+    }
+
+}
+
+.saved-medications-section {
+    padding: 90px 0;
+    background-color: #eef6ff;
+    border-top: 1px solid #dbeafe;
+    border-bottom: 1px solid #dbeafe;
+}
+
+.saved-medications-list {
+    display: grid;
+    gap: 16px;
+    max-width: 900px;
+    margin: 48px auto 0;
+}
+
+.saved-medication-card {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px;
+    background-color: #ffffff;
+    border: 1px solid #dbeafe;
+    border-radius: 16px;
+}
+
+.saved-medication-type {
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.saved-medication-card h3 {
+    margin-top: 6px;
+    font-size: 21px;
+    color: #0f172a;
+}
+
+.saved-medication-card > div > p:last-child {
+    margin-top: 4px;
+    color: #475569;
+}
+
+.saved-medication-details {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.saved-medication-details dt {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.saved-medication-details dd {
+    margin-top: 4px;
+    color: #0f172a;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+
+    .saved-medication-card {
+        flex-direction: column;
+    }
+
+    .saved-medication-details {
+        justify-content: space-between;
+    }
+
+}

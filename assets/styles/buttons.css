@@ -1,0 +1,65 @@
+/* Button styles shared by links and form actions. */
+
+.button {
+    display: inline-block;
+    padding: 13px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.button-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.button-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.button-secondary {
+    background-color: #ffffff;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+}
+
+.button-secondary:hover {
+    background-color: #f1f5f9;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 13px 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #1d4ed8;
+}
+
+.cta-button {
+    margin-top: 32px;
+    background-color: #ffffff;
+    color: #2563eb;
+}
+
+.cta-button:hover {
+    background-color: #eff6ff;
+}
+
+@media (max-width: 600px) {
+
+    .button {
+        text-align: center;
+    }
+
+}

@@ -1,5 +1,7 @@
 <?php
 
+// Homepage and current-session medication list.
+require_once __DIR__ . '/includes/config.php';
 session_start();
 
 $pageTitle = "MediTrack";
@@ -25,6 +27,7 @@ $savedMedications = $_SESSION['medications'] ?? [];
     <link rel="stylesheet" href="assets/styles/index.css">
     <link rel="stylesheet" href="assets/styles/navbar.css">
     <link rel="stylesheet" href="assets/styles/footer.css">
+    <link rel="stylesheet" href="assets/styles/buttons.css">
 
 </head>
 
@@ -60,19 +63,19 @@ $savedMedications = $_SESSION['medications'] ?? [];
 
                     <div class="hero-buttons">
 
-                        <a
-                            href="/MediTrack/pages/add-medication.php"
-                            class="button button-primary"
-                        >
-                            Add Medication
-                        </a>
+                        <?php
+                        $buttonHref = MEDTRACK_BASE_URL . '/pages/add-medication.php';
+                        $buttonLabel = 'Add Medication';
+                        $buttonClass = 'button button-primary';
+                        require __DIR__ . '/components/ui/button.php';
+                        ?>
 
-                        <a
-                            href="#how-it-works"
-                            class="button button-secondary"
-                        >
-                            How It Works
-                        </a>
+                        <?php
+                        $buttonHref = '#how-it-works';
+                        $buttonLabel = 'How It Works';
+                        $buttonClass = 'button button-secondary';
+                        require __DIR__ . '/components/ui/button.php';
+                        ?>
 
                     </div>
 
@@ -332,12 +335,12 @@ $savedMedications = $_SESSION['medications'] ?? [];
                         Add your first medication and see how MediTrack works.
                     </p>
 
-                    <a
-                        href="/MediTrack/pages/add-medication.php"
-                        class="button cta-button"
-                    >
-                        Get Started
-                    </a>
+                    <?php
+                    $buttonHref = MEDTRACK_BASE_URL . '/pages/add-medication.php';
+                    $buttonLabel = 'Get Started';
+                    $buttonClass = 'button cta-button';
+                    require __DIR__ . '/components/ui/button.php';
+                    ?>
 
                 </div>
 

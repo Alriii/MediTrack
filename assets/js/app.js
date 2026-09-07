@@ -1,3 +1,4 @@
+// Small form helpers; PHP still does the final validation.
 document.addEventListener("DOMContentLoaded", function () {
 
     const medicationType = document.getElementById("medication_type");

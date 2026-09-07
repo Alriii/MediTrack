@@ -1,5 +1,7 @@
 <?php if ($medication !== null): ?>
 
+    <!-- Processed medication details. -->
+
     <!-- Medication Result -->
     <div class="medication-result">
 

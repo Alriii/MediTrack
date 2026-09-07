@@ -1,3 +1,4 @@
+<!-- Site footer. -->
 <footer class="site-footer">
 
     <div class="footer-container">
